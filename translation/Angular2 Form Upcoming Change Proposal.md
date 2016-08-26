@@ -41,10 +41,10 @@
 这创建了一个没有初始值的基本表单，你可以输出每个control和controlGroup，去检查它的值(value)和验证状态(vadility state).
 
 问题：
->所有的输出都叫__ngForm__。表面上看来，__name__,__first__,__f__好像应该指向同一个东西-根表单。实际上，每个__ngForm__是一个基于它的父元素的不同的值。它应该更直观的为每个输出匹配这个指令的名字。
+>所有的输出都叫__ngForm__。表面上看来，name,first,f 好像应该指向同一个东西-根表单。实际上，每个__ngForm__是一个基于它的父元素的不同的值。它应该更直观的为每个输出匹配这个指令的名字。
 
 问题：
->__ngControl__和__ngFormControl的区别并不明显。它们都是表单controls(Form controls)，所以为什么用__ngControl__替代__ngFormControl__？事实上，__ngControl__创建了一个新的表单control以及期望一个字符串的名字作为一个输入，而__ngFormControl__期望传入一个已存在的control实例。另外，只有__ngFormControl__能被用在Form标签外面。这并不能很明显的从名字中看出。
+>ngControl和ngFormControl的区别并不明显。它们都是表单controls(Form controls)，所以为什么用ngControl替代ngFormControl？事实上，ngControl创建了一个新的表单control以及期望一个字符串的名字作为一个输入，而ngFormControl期望传入一个已存在的control实例。另外，只有ngFormControl能被用在Form标签外面。这并不能很明显的从名字中看出。
 
 问题：
 >怎么给表单填入初始值不是很明确。你可以作为一个子视图对表单进行查询和手动设置control的值。然而，这不是立即生效的，而且熟悉angular1的开发们更可能试图将它转换成ngModel（示例2）.
@@ -52,7 +52,7 @@
 目的：
 > 提供开发们能轻易猜出的直观的输出名字。
 > 
-> 区分容易混淆的指令名：__ngControl__ & __ngFormControl__
+> 区分容易混淆的指令名：ngControl & ngFormControl
 
 ####示例2：ngModel
 从angular1中过来的开发者期望以下代码能够生效合情合理。在angular1中，添加__ngModel__和一个name属性是向根表单注册表单control全部所需要做的。
@@ -105,11 +105,12 @@
 同时使用这两个，这个表单都能如期工作，填充初始值、设置值、在父表单上正确校验。
 
 问题：
->开发者们第一次看到这段代码，对__ngControl__在哪里结束和__ngModel__在哪里开始不是很明确。什么时候你需要用到__ngControl__，什么时候你需要用到__ngModel__。这个非常让人困惑，因为__ngModel__在angular1中有最多的但不是所有的功能，而且这两个指令都为每个独立的controls提供校验状态和校验的class。
+>开发者们第一次看到这段代码，对ngControl在哪里结束和ngModel在哪里开始不是很明确。什么时候你需要用到ngControl，什么时候你需要用到ngModel。这个非常让人困惑，因为ngModel在angular1中有最多的但不是所有的功能，而且这两个指令都为每个独立的controls提供校验状态和校验的class。
+>
 >这是由于在angular2中我们有两个很相似很容易混淆的的指令，而过去一个指令就足够，并且它们之间的分割线不是很明确。
 
 问题：
->当__ngControl__和__ngModel__都在同一个元素上的，哪个作为ngForm的输出不是很明确。事实上，当它们两个同时使用时只有__ngControl__指令是激活的，而__ngModel__信息只被作为输入。这个只能通过看源码得知。
+>当ngControl和ngModel都在同一个元素上的，哪个作为ngForm的输出不是很明确。事实上，当它们两个同时使用时只有ngControl指令是激活的，而ngModel信息只被作为输入。这个只能通过看源码得知。
 
 目的：
 >简化模板驱动的表单设置，避免两个对抗的指令。
