@@ -930,7 +930,12 @@ class PlaylistGeneratorTest extends TestCase {
 
 理想情况下，`PlaylistGenerator`在自己的构造器中请求`VideoPlaylistIndex`，而不是直接创建它自己的依赖。一旦`PlaylistGenerator`请求自己的依赖，就不需要调用没有参数的`VideoPlaylistIndex`构造器，我们就可以删掉它了。我们通常不需要多个构造器。
 
+<br>
+<br>
+译者注：
 
+* Test Double不知道中文怎么翻译，介绍见：http://www.cnblogs.com/coderzh/archive/2010/01/31/xUnit-Test-Patterns6-Test-Double.html
+* 对象图：（Object graph）介绍见 http://baike.baidu.com/link?url=2WTlEDxYp0OfE3dt6Dcmj19hi7XJqN5odA1O_DlTH56dgTAGLzLJMJPu4vyDu5T051O_XbW9z7YxkOr78CEdiKf6mEsZ83EBjDgXwnSzhrODvISv9HdEoHl1qxo8MP80
 
 
 
